@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'realm-android'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.javasilev.cityguide"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    final SUPPORT_LIBRARY_VERSION = '25.1.1'
+    final BUTTERKNIFE_VERSION = '8.4.0'
+    final PICASSO_VERSION = '2.5.2'
+    final GSON_VERSION = '2.7'
+    final RETROFIT_VERSION = '2.1.0'
+    final RX_VERSION = '1.2.1'
+
+    /* support libraries */
+    compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+
+    /* utils */
+    compile "com.squareup.picasso:picasso:$PICASSO_VERSION"
+    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+    apt "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+    compile "com.google.code.gson:gson:$GSON_VERSION"
+
+    /* Retrofit & OkHttp */
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+    compile "com.squareup.okhttp3:logging-interceptor:3.3.1"
+
+    /* Rx */
+    compile "io.reactivex:rxjava:$RX_VERSION"
+    compile "io.reactivex:rxandroid:$RX_VERSION"
+
+    /* Calligraphy */
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    /* Tes */
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/item_city_viewholder_linear_layout_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_city_selectable"
+    android:orientation="horizontal"
+    android:padding="@dimen/modest">
+
+    <ImageView
+        android:id="@+id/item_city_viewholder_image_view_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginRight="@dimen/modest"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        tools:src="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/item_city_viewholder_text_view_name"
+        fontPath="fonts/HelveticaNeueCyr-Roman.otf"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorPrimaryDarker"
+        android:textSize="16sp"
+        tools:ignore="MissingPrefix"
+        tools:text="Petropavlovsk-Kamchatskiy" />
+
+    <ImageButton
+        android:id="@+id/item_city_viewholder_button_action"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/minor"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tint="@color/colorAccent"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        tools:src="@drawable/ic_favorite_border_black_24dp" />
+
+</LinearLayout>
